@@ -1,0 +1,27 @@
+/*
+    Color Scheme Idea - WoW Theme. https://colorswall.com/palette/55116/
+
+    #c12b12
+    #c8785c
+    #5c2604
+    #906e4a
+    #d8d1ca
+    #2f4556
+
+
+    WoW Item Rarity Colors 
+    Uncommon -          #FFFFFF
+    Common -            #1EFF00
+    Rare -              #0070DD
+    Epic -              #A335EE
+    Legendary -         #FF8000
+
+*/
+
+body {
+    background-color: #d8d1ca;
+}
+
+h1 {
+    color: #FF8000 /* Legendary */
+}

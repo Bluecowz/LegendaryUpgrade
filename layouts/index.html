@@ -1,26 +1,25 @@
 {{ define "main" }}
+
     <main aria-role="main">
-    <header class="homepage-header">
+    <!-- <header class="homepage-header">
         <h1>{{.Title}}</h1>
         {{ with .Params.subtitle }}
         <span class="subtitle">{{.}}</span>
         {{ end }}
-    </header>
+    </header> -->
     <div class="homepage-content">
         <!-- Note that the content for index.html, as a sort of list page, will pull from content/_index.md -->
         <!-- {{.Content}} -->
-        <style>
-            .body {
-                background-color: lightgray;
-            }
-        </style>
-        <script>
 
-        </script>
-        <div name="body" class=".body">
+        <div name="body" class="body">
             <div class="container">
+                <div name="title" class="row">
+                    <div class="col-lg-12">
+                        <h1 style="text-align: center;">Legendary Upgrade</h1>
+                    </div>
+                </div>
                 <div class="row">
-                    <p>Hello</p>
+                    <p class="my-text">Hello</p>
                 </div>
             </div>
         </div>

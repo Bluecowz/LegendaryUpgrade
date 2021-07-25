@@ -2,3 +2,7 @@ baseURL = "http://example.org/"
 languageCode = "en-us"
 title = "My New Hugo Site"
 theme = "LegendaryTheme"
+
+[params]
+    custom_css=["static/css/style.css"]
+    custom_js=["static/js/scripts.js"]
