@@ -25,3 +25,26 @@ body {
 h1 {
     color: #FF8000 /* Legendary */
 }
+
+.value-container {
+    display: inline-block; 
+    position: relative;
+    width: 200px;
+}
+
+.value-text {
+    font-size: 36px;
+    /* text-align: left; */
+    /* float: left; */
+    position: absolute;
+    top: 0;
+
+}
+
+.ash-image {
+    position: absolute;
+    height: 36px;
+    top: 10px;
+    left: 85px;
+}
+

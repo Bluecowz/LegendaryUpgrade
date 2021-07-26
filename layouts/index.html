@@ -10,7 +10,69 @@
     <div class="homepage-content">
         <!-- Note that the content for index.html, as a sort of list page, will pull from content/_index.md -->
         <!-- {{.Content}} -->
+        <script>
+            var legoCosts = [
+                {"ash": 0,      "cinders": 0                  },    // rank 0
+                {"ash": 1250,   "cinders": 0,       "lvl": 195},    // rank 1
+                {"ash": 2000,   "cinders": 0,       "lvl": 210},    // rank 2
+                {"ash": 3200,   "cinders": 0,       "lvl": 225},    // rank 3
+                {"ash": 5150,   "cinders": 0,       "lvl": 235},    // rank 4
+                {"ash": 5150,   "cinders": 1100,    "lvl": 249},    // rank 5
+                {"ash": 5150,   "cinders": 1650,    "lvl": 262},    // rank 6
+            ]
 
+            $(function() { /*dom ready*/
+                $('#current').on('change', function() {
+                    let curSelectValue = parseInt($('#current').val());
+                    let disSelectValue = parseInt($('#desired').val());
+                    let curValue = legoCosts[curSelectValue];
+                    let disValue = legoCosts[disSelectValue];
+
+                    let ash = disValue["ash"] - curValue["ash"];
+                    $('#ash-value').text(ash);
+
+                    let cinders = disValue["cinders"] - curValue["cinders"];
+                    $('#cinders-value').text(cinders);
+
+                    $('#desired').empty();
+                    for(var i=curSelectValue+1; i<legoCosts.length; i++) {
+                        var o = new Option("Rank " + i + " (" + legoCosts[i]["lvl"] + ")", i);
+                        $(o).html("Rank " + i + " (" + legoCosts[i]["lvl"] + ")");
+                        $('#desired').append(o);
+                    }
+                    $('#desired').val(disSelectValue)
+
+                });
+
+                $('#desired').on('change', function() {
+                    let curSelectValue = parseInt($('#current').val());
+                    let disSelectValue = parseInt($('#desired').val());
+                    let curValue = legoCosts[curSelectValue];
+                    let disValue = legoCosts[disSelectValue];
+
+                    let ash = disValue["ash"] - curValue["ash"];
+                    $('#ash-value').text(ash);
+
+                    let cinders = disValue["cinders"] - curValue["cinders"];
+                    $('#cinders-value').text(cinders);
+
+                    $('#current').empty();
+                    for(var i=0; i<disSelectValue; i++) {
+                        var o;
+                        if(i == 0) {
+                            o = new Option("None!", i);
+                            $(o).html("None!");
+                        } else {
+                            o = new Option("Rank " + i + " (" + legoCosts[i]["lvl"] + ")", i);
+                            $(o).html("Rank " + i + " (" + legoCosts[i]["lvl"] + ")");
+                        }
+                        $('#current').append(o);
+                    }
+                    $('#current').val(curSelectValue);
+                });
+            })
+
+        </script>
         <div name="body" class="body">
             <div class="container">
                 <div name="title" class="row">
@@ -51,7 +113,7 @@
                         </div>
                         <div class="row">
                             <div class="col-lg-12">
-                                <select name="current" id="current">
+                                <select name="desired" id="desired">
                                     <option value=1>Rank 1 (190)</option>
                                     <option value=2>Rank 2 (210)</option>
                                     <option value=3>Rank 3 (225)</option>
@@ -64,14 +126,20 @@
                     </div>
                 </div>
                 <div class="row">
-                    <p>Required Currency:</p>
+                    <div class="col-sm-12">
+                        <h5 style="text-align: center;">Required Currency</h5>
+                    </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-6">
-                        
-                    </div>
-                    <div class="col-md-6">
-                        
+                    <div style="text-align: center;" class="col-md-12">
+                        <div class="value-container">
+                            <p id="ash-value" class="value-text">5150</p>
+                            <img class="ash-image" src="{{ .Site.BaseURL }}/images/soul-ash.jpg" alt="Soul Ash"/>
+                        </div>
+                        <div class="value-container">
+                            <p id="cinders-value" class="value-text">1650</p>
+                            <img class="ash-image" src="{{ .Site.BaseURL }}/images/soul-cinders.jpg" alt="Soul Ash"/>
+                        </div>  
                     </div>
                 </div>
             </div>

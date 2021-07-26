@@ -7,3 +7,4 @@ var legoCosts = [
     {"ash": 5150, "cinders": 1100}, // rank 5
     {"ash": 5150, "cinders": 1650}, // rank 6
 ]
+
